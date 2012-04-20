@@ -130,12 +130,12 @@ module ActiveMDB
           raise ArgumentError, "No column corresponding to #{column_name}" unless column
           case column.klass.to_s
           when 'Fixnum', 'Float'
-            "#{column.name} = #{value}"
+            %Q{"#{column.name}" = #{value}}
           when 'String'
-            "#{column.name} LIKE '%#{value}%'"
+            %Q{"#{column.name}" LIKE '%#{value}%'}
           when 'Object'
             value = value ? 1 : 0
-            "#{column.name} IS #{value}"
+            %Q{"#{column.name}" IS #{value}}
           end
         end
       end

@@ -68,7 +68,7 @@ module MDBTools
       attributes ||= '*'
     end
     where = conditions ? "where #{conditions}" : ""
-    sql = "select #{attributes} from #{table_name} #{where}"
+    sql = %Q{select #{attributes} from "#{table_name}" #{where}}
     mdb_sql(mdb_file, sql)
   end
   
