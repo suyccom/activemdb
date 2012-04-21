@@ -5,7 +5,8 @@ module ActiveMDB
     def initialize(attributes=nil)
       @attributes = attributes unless attributes.nil?
     end
-    
+
+    attr_reader :attributes
     cattr_accessor :pluralize_table_names, :instance_writer => false
     @@pluralize_table_names = true
     
