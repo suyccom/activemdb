@@ -93,7 +93,7 @@ module MDBTools
         if field_count == 0
           hash = {}
         end
-        columns = row.chomp.split(DELIMITER)
+        columns = row.chomp.split(DELIMITER, -1)
 
         column_count += columns.length
         premature_eol += 1 if column_count < fields.length
